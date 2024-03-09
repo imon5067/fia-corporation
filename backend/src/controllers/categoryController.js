@@ -43,17 +43,17 @@ const updateCategory = asyncHandler(async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
+//remove category
 const removeCategory = asyncHandler(async (req, res) => {
   try {
-    const removed = await Category.findByIdAndRemove(req.params.categoryId);
+    const removed = await Category.findByIdAndDelete(req.params.categoryId);
     res.json(removed);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
+//All Categories
 const listCategory = asyncHandler(async (req, res) => {
   try {
     const all = await Category.find({});
@@ -63,7 +63,7 @@ const listCategory = asyncHandler(async (req, res) => {
     return res.status(400).json(error.message);
   }
 });
-
+//Read Category
 const readCategory = asyncHandler(async (req, res) => {
   try {
     const category = await Category.findOne({ _id: req.params.id });
