@@ -3,7 +3,7 @@ import Product from "../models/productModel.js";
 
 const addProduct = asyncHandler(async (req, res) => {
   try {
-    const { name, description, price, category, quantity, brand } = req.body;
+    const { name, description, price, category, quantity, brand } = req.fields;
 
     // Validation
     switch (true) {
@@ -21,7 +21,7 @@ const addProduct = asyncHandler(async (req, res) => {
         return res.json({ error: "Quantity is required" });
     }
 
-    const product = new Product(req.body);
+    const product = new Product({ ...req.fields });
     await product.save();
     res.json(product);
   } catch (error) {
