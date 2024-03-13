@@ -32,10 +32,3 @@ app.use("/api/orders", orderRoutes);
 app.listen(port, () => {
     console.log("listening on port http://localhost:" + port);
 });
-
-//const __dirname = path.resolve();
-//app.use("/uploads", express.static(path.join(__dirname + "/uploads")));
-
-//app.get("/api/config/paypal", (req, res) => {
- //   res.send({ clientId: process.env.PAYPAL_CLIENT_ID });
- // });
