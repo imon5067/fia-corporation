@@ -27,8 +27,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/orders", orderRoutes);
 
-
-
 app.listen(port, () => {
     console.log("listening on port http://localhost:" + port);
 });
